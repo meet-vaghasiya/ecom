@@ -1,0 +1,19 @@
+{
+  "name": "ecom",
+  "version": "1.0.0",
+  "description": "ecom api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meet-vaghasiya/ecom.git"
+  },
+  "author": "meetvaghasiya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meet-vaghasiya/ecom/issues"
+  },
+  "homepage": "https://github.com/meet-vaghasiya/ecom#readme"
+}
