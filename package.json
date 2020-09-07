@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/meet-vaghasiya/ecom/issues"
   },
-  "homepage": "https://github.com/meet-vaghasiya/ecom#readme"
+  "homepage": "https://github.com/meet-vaghasiya/ecom#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.2.1",
+    "mongoose": "^5.10.3",
+    "nodemon": "^2.0.4"
+  }
 }
