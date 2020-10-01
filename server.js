@@ -1,13 +1,17 @@
-
 const express= require('express')
 const handleErrors = require('./middlewares/error-handler')
 require('express-async-errors')
 require('dotenv').config()
 require('./database/connection')()
 // console.log(process.env)
-
+const helmet = require("helmet");
 const app=express()
 
+const cors=require('cors')
+app.use(cors())
+
+
+app.use(helmet());
 Promise.reject(new Error("from promise"))
 .then(r=>{}, err=>console.log("Error from promise"))
 
@@ -18,9 +22,6 @@ const { UPLOAD_FOLDER } = process.env
 app.use(express.json())
 app.use(morgan('dev'))
 
-
-
-
 app.get('/',(req,res)=>{
     res.json({'name':"listning on app rout directly"})
 })
@@ -30,7 +31,6 @@ ApiRouter.get('',(req,res)=>{
 })
 
 app.use('/api',ApiRouter)
-
 
 ApiRouter.use('/users',userRouter)
 ApiRouter.use('/products',productRouter)
@@ -49,8 +49,6 @@ ApiRouter.get('/'+UPLOAD_FOLDER+"/*",(req,res,next)=>{
     })
 })
 
-
-
 // const passwordHash=require("password-hash")
 // console.log("inside indexjs")
 
@@ -58,9 +56,6 @@ ApiRouter.get('/'+UPLOAD_FOLDER+"/*",(req,res,next)=>{
 // console.log({hashPassword})
 // const isvalid=passwordHash.verify("pasrd123",hashPassword)
 // console.log(isvalid)
-
-
-
 
 const {users}=require('./fakeData')
 const { User } = require('./models/user')
@@ -75,6 +70,6 @@ let newUsers=users.map(user=>{
 //     console.log()
 // })
 
-// app.use(handleErrors)
+// app.use(handleErrors())
 
 module.exports={app}
